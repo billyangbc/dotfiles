@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# This script backup dotfiles from the home directory and set them back
+# This script backup dotfiles from the home directory and install the new config
 # this script need to be in the same folder of dotfiles
 ################################################################################
 
@@ -45,24 +45,19 @@ copy() {
     done
 }
 
-backup() {
+install() {
+    # original dotfiles backup folder
     # bakcup folder with time stamp
     stamp=`date +"%Y%m%d%H%M"`
     dir_backup="${DIR}/_bak_${stamp}"
-    mkdir -p -m +w ${dir_backup}
-    copy ~ ${dir_backup}
-}
-
-install() {
-    # original dotfiles backup folder
-    dir_old="${DIR}/_old"
+    
     # create dotfiles_old in homedir
-    echo "Creating ${dir_old} for backup of existing dotfiles in home folder"
-    mkdir -p -m 777 ${dir_old}
+    echo "Creating ${dir_backup} for backup of existing dotfiles in home folder"
+    mkdir -p -m +w ${dir_backup}
     echo "...done"
 
     # backup the original files
-    copy ~ ${dir_old} "1"
+    copy ~ ${dir_backup} "1"
 
     # create symlinks
     for file in $files; do
@@ -78,7 +73,6 @@ $PROGNAME
 
 OPTIONS:
     -h              Display this help message and exit.
-    -b              Backup current dotfiles
     -i              Install dotfile to current system
 _EOF_
   return
@@ -92,13 +86,8 @@ then
     help_message
     exit
 fi
-while getopts ":bih:" opt; do
+while getopts ":ih:" opt; do
     case "${opt}" in
-        b)
-            # backup dotfiles from home folder to repository
-            backup
-            exit
-            ;;
         i)
             # install dotfiles to home folder
             install
