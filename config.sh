@@ -9,10 +9,11 @@ PROGNAME=${0##*/}
 # dotfiles folder
 DIR=`pwd`
 # list of files/folders to symlink in homedir
-files="vimrc vim bashrc aliases"
+FILE_LIST="vimrc vim bashrc aliases"
+EXTRA="extra"
 
 #### functions ####
-copy() {
+stash() {
     # copy source folder
     from=$1
     # copy destination folder
@@ -21,7 +22,7 @@ copy() {
     delete=$3
 
     # copy dotfiles between home folder and backup folder
-    for file in $files; do
+    for file in $FILE_LIST; do
         # files in home folder need '.' prefix
         if [ ${from} == ~ ]; then
             src=${from}/.${file}
@@ -57,13 +58,22 @@ install() {
     echo "...done"
 
     # backup the original files
-    copy ~ ${dir_backup} "1"
+    stash ~ ${dir_backup} "1"
 
     # create symlinks
-    for file in $files; do
+    for file in $FILE_LIST; do
         echo "Creating symlink to $file in home folder."
         ln -s ${DIR}/$file ~/.$file
     done
+
+    # if the extra file exist, source it
+    if [ -e $EXTRA ]
+    then
+        source $EXTRA
+    fi
+
+    # make it work right away
+    source ~/.bashrc
 }
 
 help_message() {

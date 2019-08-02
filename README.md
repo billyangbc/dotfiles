@@ -26,11 +26,14 @@ Once the `dotfiles` is ready, it can be installed by script:
     source config.sh -i
 ```
 
-## Extra setup
-Some customer commands need to be setup mannually for the sake of credential, e.g. git config.
-Those config can goto `bashrc`.
+### Add custom commands without creating a new fork
 
-### Git config
+If `extra` file exists, it will be sourced along with the other files.
+You can use this to add a few custom commands without the need to fork this entire repository,
+or to add commands you don’t want to commit to a public repository.
+
+An `extra` file looks something like this:
+
 ```bash
 # Git credentials
 # Not in the repository, to prevent people from accidentally committing under my name
