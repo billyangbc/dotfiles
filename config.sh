@@ -8,82 +8,51 @@
 PROGNAME=${0##*/}
 # dotfiles folder
 DIR=`pwd`
-# list of files/folders to symlink in homedir
-FILE_LIST="vimrc vim bashrc aliases"
+# list of files/folders to symlinks in home folder
+FILE_LIST="vimrc vim aliases"
+SHELL_LIST="zshrc bashrc"
 EXTRA="extra"
 
 #### functions ####
-stash() {
-    # copy source folder
-    from=$1
-    # copy destination folder
-    to=$2
-    # if delete source after copy
-    delete=$3
-
-    # copy dotfiles between home folder and backup folder
-    for file in $FILE_LIST; do
-        # files in home folder need '.' prefix
-        if [ ${from} == ~ ]; then
-            src=${from}/.${file}
-            dest=${to}/${file}
-        else
-            src=${from}/${file}
-            dest=${to}/.${file}
-        fi
-
-        # use sync if it is a folder
-        if [[ -d ${src} ]]; then
-            rsync -r ${src}/ ${dest}
-        else
-            cp ${src} ${dest}
-        fi
-
-        # delete file if required
-        if [ "${delete}" == "1" ]; then
-            rm -rf ${src}
-        fi
-    done
-}
-
 install() {
-    # original dotfiles backup folder
-    # bakcup folder with time stamp
-    stamp=`date +"%Y%m%d%H%M"`
-    dir_backup="${DIR}/_bak_${stamp}"
-    
-    # create dotfiles_old in homedir
-    echo "Creating ${dir_backup} for backup of existing dotfiles in home folder"
-    mkdir -p -m +w ${dir_backup}
-    echo "...done"
-
-    # backup the original files
-    stash ~ ${dir_backup} "1"
+    # copy the dotfile folder to home folder
+    rsync -r ${DIR}/ ~/.dotfiles
 
     # create symlinks
     for file in $FILE_LIST; do
         echo "Creating symlink to $file in home folder."
-        ln -s ${DIR}/$file ~/.$file
+        ln -sf ~/.dotfiles/$file ~/.$file
     done
 
     # if the extra file exist, source it
-    if [ -e $EXTRA ]
-    then
+    if [ -e $EXTRA ]; then
         source $EXTRA
     fi
 
     # make it work right away
-    source ~/.bashrc
+    for shf in ${SHELL_LIST}; do
+        if ! grep '. ~/.aliases' ~/.${shf} ; then
+            echo 'if [ -f ~/.aliases ]; then' >> ~/.${shf}
+            echo '    . ~/.aliases ' >> ~/.${shf}
+            echo 'fi' >> ~/.${shf}
+
+            echo "Above lines have been appended to ${shf}"
+        else
+            echo "Above lines exist in ${shf}"
+        fi
+    done
+
+    source ~/.aliases
 }
 
 help_message() {
     cat <<- _EOF_
 $PROGNAME
-    Script to bakcup dotfiles to respostory and install them to home folder.
+    Script to install dotfiles to current system.
 
 OPTIONS:
-    -h              Display this help message and exit.
-    -i              Install dotfile to current system
+    -h      Display this help message and exit.
+    -i      Install dotfiles to current system
 _EOF_
   return
 }

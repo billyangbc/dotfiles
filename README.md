@@ -1,28 +1,52 @@
-# My dotfiles
+﻿# My dotfiles
+
+https://billyang@bitbucket.org/billyang/dotfiles
 
 ## Overview
-This dotfiles is to setup a basic system envionment on OS X/Linux.
+This dotfiles repository is to set up my preferred environment config on OS X/Linux.
+However, Linux's shells are getting better and better, so that this one repository is trying to keep simple and easy to update.
+This repository does not include `bashrc` setting.
 
 ## Usage
-This dotfiles is design to download/clone the repository to local first and then create links to home directory.
-Suppose the `dotfiles` folder is at home folder, e.g. `~/dotfiles`.
+An easy way to use this repository is to download/clone it to local and put it in home folder as hidden folder, e.g. `~/.dotfiles`.
+Then create symbol links to this hidden folder.
 
-### Get the repository at local
+Note: In order to user vim, the vim has to be installed first.
+```
+sudo apt update
+sudo apt install vim
+sudo apt-get install vim-gui-common
+sudo apt-get install vim-runtime
+```
 
-There are following ways to get the respository ready at local:
+## Using zsh
+If you want use `zsh`, have it ready before install and configure the `dotfiles`.
+```
+sudo apt install zsh
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc 
+sudo apt install fonts-powerline
+```
 
-* Copy the `dotfiles` folder from another storage, e.g. an external disk.
-* Download the `dotfiles` from respository directly.
-* Clone the `dotfiles` from respository. 
+### Get the repository to local
+An easy way to use this repository is to download/clone it to local and put it in home folder as hidden folder, e.g.  `~/.dotfiles`.  Then create symbol links to this hidden folder.
+
+There are following ways to get the repository ready at local:
+* Download the `dotfiles` from repository directly or where it is stored locally. Then copy the `dotfiles` folder from where it is stored, e.g. `~/Downloads/dotfiles`, to home folder:
+    ```bash
+    rsync -r ~/Downloads/dotfiles/ ~/.dotfiles
+    ```
+
+* Clone the `dotfiles` from repository. 
     ```bash
     cd ~
-    git clone https://billyang@bitbucket.org/billyang/dotfiles.git dotfiles
+    git clone https://billyang@bitbucket.org/billyang/dotfiles.git .dotfiles
     ```
 
 ### Installation
-Once the `dotfiles` is ready, it can be installed by script:
+Once the `~/.dotfiles` is ready, it can be installed by script:
 ```
-    cd ~/dotfiles
+    cd ~/.dotfiles
     source config.sh -i
 ```
 

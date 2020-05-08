@@ -3,7 +3,6 @@
 " Miscellaneous {{{
 set nocompatible                    " get rid of Vi compatibility mode. SET FIRST!
 filetype plugin indent on           " allow intelligent auto-indenting for each filetype, and for plugins that are filetype specific
-syntax enable                       " enable syntax highlighting (previously syntax on).
 set backspace=indent,eol,start      " make backspace flexible
 set autoread                        " watch for file changes
 " }}}
@@ -13,8 +12,8 @@ set autoindent                      " auto-indent
 set expandtab                       " use spaces instead of tabs
 set tabstop=4                       " tab spacing
 set softtabstop=4                   " 4 space tab
-set shiftround                      " always indent/outdent to the nearest tabstop
-set shiftwidth=4                    " set shiftwidth to 4 spaces
+set shiftround                      " always indent to the nearest tabstop
+set shiftwidth=4                    " set shift width to 4 spaces
 set smarttab                        " use tabs at the start of a line, spaces elsewhere
 " }}}
 
@@ -25,7 +24,7 @@ set showcmd                         " display incomplete searches
 set cursorline                      " highlight the current line
 set wildmenu                        " visual autocomplete for command menu
 set lazyredraw                      " Don’t update screen during macro and script execution
-set showmatch                       " higlight matching parenthesis
+set showmatch                       " highlight matching parenthesis
 set laststatus=2                    " always display always has a status line
 set noerrorbells                    " turn off system beeps
 " }}}
@@ -53,6 +52,7 @@ set directory=~/.vim/swap           " set the swap file location
 
 " Colors (in ~/.vim/colors) {{{
 " solarized dark colorscheme
+"colorscheme solarized
 "set background=dark
 "let g:solarized_visibility="high"
 "let g:solarized_contrast="high"
