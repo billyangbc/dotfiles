@@ -7,7 +7,7 @@
 #### Variables ####
 PROGNAME=${0##*/}
 # dotfiles folder
-DIR=`pwd`
+DIR=$(dirname "$0")
 # list of files/folders to symlinks in home folder
 FILE_LIST="vimrc vim aliases"
 SHELL_LIST="zshrc bashrc"
@@ -16,7 +16,12 @@ EXTRA="extra"
 #### functions ####
 install() {
     # copy the dotfile folder to home folder
-    rsync -r ${DIR}/ ~/.dotfiles
+    if [[ ${DIR} -ef ~/.dotfiles ]]; then
+        echo "Already in ~/.dotfiles folder."
+    else
+        rm -rf ~/.dotfiles/
+        rsync -r ${DIR}/ ~/.dotfiles
+    fi
 
     # create symlinks
     for file in $FILE_LIST; do
