@@ -27,15 +27,15 @@ function cd {
     builtin cd "$@" && l
 }
 
-# develop environment folder
-alias dev='cd ~/workspace'
-
-# active python3 virtualenv
-# python3 -m venv ~/.venv3
-# pip freeze --local > requirements.txt
-#alias workon='source ~/.venv3/bin/activate'                                                                                                                                                                                                       
-#salias workoff='deactivate'
-
+#### aliases for development ####
 # pbcopy
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+
+# kubernetes
+alias k='kubectl'
+
+# Autocomplete
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

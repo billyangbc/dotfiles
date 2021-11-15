@@ -1,0 +1,18 @@
+# file: dotfiles.yml
+- name: Set up local workstation
+  hosts: local
+
+  tasks:
+    # copy aliases to home folder
+    - name: Copy aliases to home folder
+      copy:
+        src: "resources/aliases"
+        dest: "{{ lookup('env', 'HOME') }}/.aliases"
+        mode: '644' # 0644
+        force: yes
+
+  roles:
+    - vim
+    - git
+    - zsh
+ 

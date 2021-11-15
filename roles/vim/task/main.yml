@@ -1,0 +1,18 @@
+---
+# file: roles/vim/tasks/main.yml
+- name: Installs vim package
+  become: yes
+  become_user: root
+  apt:
+    name: vim
+    state: present
+
+- name: Copy vim files
+  copy:
+    src: "files/{{ item }}"
+    dest: "{{ lookup('env', 'HOME') }}/.{{ item }}"
+    mode: '644' # 0644
+    force: yes
+  with_items:
+    - vim
+    - vimrc
