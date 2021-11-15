@@ -36,9 +36,26 @@ cd ~/.dotfiles
 ./bootstrap.sh
 ```
 
-## Change zsh theme
+## Customize settings
+### Change zsh theme
 The zsh config file is `roles/zsh/templates/zshrc.j2`. If you want to use specified themes, you can update the themes list in `roles/zsh/vars/main.yml`.
 ```yaml
 zsh_theme_random_list: "'agnoster' 'miloshadzic' 'gozilla' 'pygmalion' 'simple' 'lukerandall'"
 ```
 Then run `./bootstrap.sh` again after the file is updated.
+
+### Add more aliases
+You can update `resources/aliases` to add more aliases. e.g. add `k` for `kubectl` command:
+```bash
+# kubernetes
+alias k='kubectl'
+```
+
+### Autocomplete settings
+Add autocomplete settings in `resources/aliases` file, e.g.:
+```bash
+# Autocomplete
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
