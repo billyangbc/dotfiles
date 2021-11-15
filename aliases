@@ -26,3 +26,10 @@ alias grep='grep -n --color=auto'
 function cd {
     builtin cd "$@" && l
 }
+
+# develop environment folder
+alias dev='cd ~/workspace/projects'
+# active python3 virtualenv
+# python3 -m venv ~/.venv3
+alias workon='source ~/.venv3/bin/activate'                                                                                                                                                                                                       
+alias workoff='deactivate'
