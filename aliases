@@ -28,8 +28,14 @@ function cd {
 }
 
 # develop environment folder
-alias dev='cd ~/workspace/projects'
+alias dev='cd ~/workspace'
+
 # active python3 virtualenv
 # python3 -m venv ~/.venv3
-alias workon='source ~/.venv3/bin/activate'                                                                                                                                                                                                       
-alias workoff='deactivate'
+# pip freeze --local > requirements.txt
+#alias workon='source ~/.venv3/bin/activate'                                                                                                                                                                                                       
+#salias workoff='deactivate'
+
+# pbcopy
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
