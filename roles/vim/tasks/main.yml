@@ -9,10 +9,14 @@
 
 - name: Copy vim files
   copy:
-    src: "files/{{ item }}"
-    dest: "{{ lookup('env', 'HOME') }}/.{{ item }}"
+    src: "files/vimrc"
+    dest: "{{ lookup('env', 'HOME') }}/.vimrc"
     mode: '644' # 0644
     force: yes
-  with_items:
-    - vim
-    - vimrc
+
+- name: Copy vim folders
+  copy:
+    src: "files/vim/"
+    dest: "{{ lookup('env', 'HOME') }}/.vim/"
+    mode: '755'
+    force: yes
