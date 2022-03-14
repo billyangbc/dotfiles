@@ -3,7 +3,7 @@
 # Git installation
 
 - name: Git | Installs git | apt
-  become: yes
+  become: true
   become_user: root
   apt:
     name: git

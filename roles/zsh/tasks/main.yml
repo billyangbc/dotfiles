@@ -1,7 +1,7 @@
 ---
 # file: roles/zsh/tasks/main.yml
 - name: Installs zsh packages | apt
-  become: yes
+  become: true
   become_user: root
   apt:
     name:
@@ -10,7 +10,7 @@
       - fonts-powerline
 
 - name: Sets zsh as default shell for logged user | command
-  become: yes
+  become: true
   become_user: root
   command: chsh -s /bin/zsh {{ lookup('env', 'USER') }}
   register: zsh_for_user
