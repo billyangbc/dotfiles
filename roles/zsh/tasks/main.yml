@@ -7,6 +7,7 @@
     name:
       - zsh
       - curl
+      - tmux
       - fonts-powerline
 
 - name: Sets zsh as default shell for logged user | command
