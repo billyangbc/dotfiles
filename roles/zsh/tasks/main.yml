@@ -9,6 +9,7 @@
       - curl
       - tmux
       - fonts-powerline
+      - xclip
 
 - name: Sets zsh as default shell for logged user | command
   become: true
