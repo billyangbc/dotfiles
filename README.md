@@ -11,7 +11,7 @@ An easy way to use this repository is to download/clone it to local and run `boo
 ### Clone `dotfiles` the repository to local
 
 ```bash
-git clone git@github.com:billyangbc/dotfiles.git .dotfiles
+git clone git@github.com:billyangbc/dotfiles.git dotfiles
 ```
 ### Preset your personal settings
 
@@ -32,7 +32,7 @@ export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 Run `bootstrap.sh`:
 
 ```bash
-cd ~/.dotfiles
+cd dotfiles
 ./bootstrap.sh
 ```
 
