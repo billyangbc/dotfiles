@@ -11,7 +11,7 @@ An easy way to use this repository is to download/clone it to local and run `boo
 ### Clone `dotfiles` the repository to local
 
 ```bash
-git clone git@github.com:billyangbc/dotfiles.git dotfiles
+git clone https://github.com/billyangbc/dotfiles.git dotfiles
 ```
 ### Preset your personal settings
 
