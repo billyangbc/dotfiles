@@ -1,4 +1,4 @@
-﻿# [My dotfiles with zsh](git@github.com:bill-yang/dotfiles.git)
+﻿# [My dotfiles with zsh](git@github.com:billyangbc/dotfiles.git)
 
 ## Overview
 This dotfiles repository is to set up my preferred environment config on OS X/Linux.
@@ -11,7 +11,7 @@ An easy way to use this repository is to download/clone it to local and run `boo
 ### Clone `dotfiles` the repository to local
 
 ```bash
-git clone git@github.com:bill-yang/dotfiles.git .dotfiles
+git clone git@github.com:billyangbc/dotfiles.git .dotfiles
 ```
 ### Preset your personal settings
 
