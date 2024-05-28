@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Installs ansible
+sudo apt-get update && sudo apt-get install -y ansible
+
 # preset file contains private settings which should not goto public
 PRESET="preset"
 # if the extra file exist, source it
@@ -13,10 +16,6 @@ ROOTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HOSTS="$ROOTDIR/hosts"
 # Main playbook
 PLAYBOOK="$ROOTDIR/dotfiles.yml"
-
-# Installs ansible
-sudo apt-get update && sudo apt-get install -y ansible
-
 
 # Runs Ansible playbook using our user.
 ansible-playbook -i "$HOSTS" "$PLAYBOOK"
