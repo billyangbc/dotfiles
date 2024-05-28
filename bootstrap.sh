@@ -20,6 +20,6 @@ PLAYBOOK="$ROOTDIR/dotfiles.yml"
 
 # Runs Ansible playbook using our user.
 #ansible-playbook -i "$HOSTS" "$PLAYBOOK"
-ansible-playbook -i "$HOSTS" "$PLAYBOOK" --extra-vars "ansible_user=$DOTFILES_USER" --ask-pass --ask-become-pass -vvv
+ansible-playbook -i "$HOSTS" "$PLAYBOOK" --extra-vars "ansible_user=$DOTFILES_USER" --ask-pass --ask-become-pass
 
 exit 0
