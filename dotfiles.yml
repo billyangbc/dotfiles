@@ -1,6 +1,8 @@
 # file: dotfiles.yml
 - name: Set up local workstation
-  hosts: local
+  hosts:
+  - local
+  - pi_2
 
   tasks:
     # copy aliases to home folder
@@ -12,7 +14,7 @@
         force: yes
 
   roles:
-    - vim
     - git
+    - vim
     - zsh
  
