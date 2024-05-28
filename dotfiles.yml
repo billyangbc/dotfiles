@@ -3,6 +3,7 @@
   hosts:
   - local
   - pi_2
+  - pi_5
 
   tasks:
     # copy aliases to home folder
