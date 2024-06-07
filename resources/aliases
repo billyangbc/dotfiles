@@ -34,11 +34,11 @@ alias pbpaste='xclip -selection clipboard -o'
 
 # kubernetes
 alias k='kubectl'
-function k_local {
+function klocal {
     export KUBECONFIG=~/.kube/config
 }
-function k_pi5 {
-    export KUBECONFIG=~/.kube/k3d-pi5-config
+function kpi5 {
+    export KUBECONFIG=~/.kube/config-pi5
 }
 
 # Autocomplete
