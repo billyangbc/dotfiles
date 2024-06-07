@@ -1,0 +1,1 @@
+docker_distribution_release: "{{ ansible_facts.distribution_release }}"
