@@ -1,9 +1,6 @@
 # file: dotfiles.yml
 - name: Set up local workstation
-  hosts:
-  - local
-  - pi_2
-  - pi_5
+  hosts: "{{ target | default('all') }}"
 
   tasks:
     # copy aliases to home folder
@@ -18,5 +15,3 @@
     - git
     - vim
     - zsh
-    - docker
- 

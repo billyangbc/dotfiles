@@ -1,12 +1,9 @@
 
 [local]
-localhost
+localhost ansible_connection=local
 
 [pi_2]
 192.168.100.201
 
 [pi_5]
 192.168.100.205
-
-[local:vars]
-ansible_connection=local
