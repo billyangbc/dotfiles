@@ -101,6 +101,11 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# avoid adding a highlighted percent symbol '%' at end of the output
+# When a partial line is preserved, by default you will see an inverse+bold character at the end of the partial line: a "%" for a normal user or a "#" for root.
+# If set, the shell parameter PROMPT_EOL_MARK can be used to customize how the end of partial lines are shown.
+export PROMPT_EOL_MARK=''
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
