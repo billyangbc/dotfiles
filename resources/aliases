@@ -40,6 +40,9 @@ function klocal {
 function kpi5 {
     export KUBECONFIG=~/.kube/config-pi5
 }
+function kai {
+    export KUBECONFIG=~/.kube/config-ai
+}
 
 # Autocomplete
 export NVM_DIR="$HOME/.nvm"
