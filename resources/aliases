@@ -37,12 +37,8 @@ alias k='kubectl'
 function klocal {
     export KUBECONFIG=~/.kube/config
 }
-function kpi5 {
-    export KUBECONFIG=~/.kube/config-pi5
-}
-function kai {
-    export KUBECONFIG=~/.kube/config-ai
-}
+# set up kubernetes completion in zsh into the current shell
+source <(kubectl completion zsh)
 
 # Autocomplete
 export NVM_DIR="$HOME/.nvm"
