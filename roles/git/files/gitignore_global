@@ -13,6 +13,7 @@ tags
 # node_modules
 node_modules/
 # env files
-.env*
+.env*.local
+.env
 # Elixir Language Server
 .elixir_ls/
