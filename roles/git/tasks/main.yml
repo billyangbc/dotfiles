@@ -12,7 +12,7 @@
 - name: copy gloable git ignore
   copy:
     src: "files/gitignore_global"
-    dest: "{{ lookup('env', 'HOME') }}/.gitignore_global"
+    dest: "{{ user_home }}/.gitignore_global"
     mode: '644' # 0644
     force: yes
 

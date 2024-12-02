@@ -21,7 +21,7 @@
 
 - name: Checks for oh-my-zsh installation | stat
   stat:
-    path: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
+    path: "{{ user_home }}/.oh-my-zsh"
   register: oh_my_zsh_stat
 
 - name: Installs oh-my-zsh | raw
@@ -31,6 +31,6 @@
 - name: zsh | Copy .zshrc | template
   template:
     src: "zshrc.j2"
-    dest: "{{ lookup('env', 'HOME') }}/.zshrc"
+    dest: "{{ user_home }}/.zshrc"
     mode: '644' # 0644
     force: yes
