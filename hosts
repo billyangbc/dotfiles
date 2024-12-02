@@ -1,5 +1,5 @@
-[local]
-localhost ansible_connection=local
+#[local]
+#localhost ansible_connection=local
 
 [pi_2]
 192.168.100.201
@@ -10,4 +10,5 @@ localhost ansible_connection=local
 192.168.100.207
 
 [amd64]
+192.168.100.210
 192.168.100.220

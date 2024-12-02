@@ -35,6 +35,10 @@ Run `bootstrap.sh`:
 cd dotfiles
 ./bootstrap.sh
 ```
+## Call `ansible-playbook` directly
+```bash
+ansible-playbook -i hosts dotfiles.yml --ask-pass --ask-become-pass
+```
 
 ## Customize settings
 ### Change zsh theme
