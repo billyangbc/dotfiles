@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Installs ansible
-sudo apt-get update && sudo apt-get install -y ansible
-sudo apt-get install -y sshpass
+# Installs ansible on debian
+#sudo apt-get update && sudo apt-get install -y ansible
+#sudo apt-get install -y sshpass
 
 # preset file contains private settings which should not goto public
 PRESET="preset"
